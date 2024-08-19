@@ -10,17 +10,18 @@
     <header></header>
     
     <main class="menu">
-        <section class="resultado">
-            <p> El texto encriptado</p>
-        </section>
-        
+            <div class="menu_resultados">
+            <p class="resultado"> Aqui aparecera el texto que buscas encriptar o desencriptar. </p>
+             <button class="copiar"> Copiar </button>
+            </div>
+
         <section class="menu_principal">
             <label for="textoausar">Ingresa el texto a encriptar:</label>
             <textarea name="textoausar" id="textoausar"></textarea>
 
             <div class="opciones">
-                <button class="opciones_interaccion"> Encriptar </button>
-                <button class="opciones_interaccion"> Desencriptar </button>
+                <button onclick="encriptar();" class="opciones_interaccion"> Encriptar </button>
+                <button onclick="desencriptar();" class="opciones_interaccion"> Desencriptar </button>
             </div>
         </section>
     </main>
@@ -28,5 +29,9 @@
     <footer class="footer">
         <p>Desarrollado por Juan Jimenez</p>
     </footer>
+
+    <div class="triangulo"></div>
+
+    <script src="encriptador.js" defer></script>
 </body>
 </html>

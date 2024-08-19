@@ -7,20 +7,55 @@ body {
     padding: 0;
 }
 
+.triangulo {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 70vw 89vh 0; /* 50% del ancho y 50% de la altura de la pantalla */
+    border-color: transparent black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -11; /* Asegura que el triángulo esté detrás de otros elementos */
+}
+
+
 .menu {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    
+    z-index: 2;
 }
 
-.resultado{
+.menu_resultados{
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
     padding: 20px;
     margin-left: 200px;
     border-radius: 10px;
     text-align: center;
+}
+
+.copiar {
+    background-color: #00AEEF; /* Color rosa/rojo vibrante */
+    border: 2px solid #0025b8 ;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.copiar:hover {
+    background-color: #FF3366;
+    transform: scale(1.1); /* Pequeño zoom al pasar el cursor */
+}
+
+.copiar:active{
+transform: scale(0.95); /* Efecto de click */
 }
 
 .menu_principal {
