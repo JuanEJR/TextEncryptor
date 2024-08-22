@@ -14,6 +14,7 @@ function encriptar () {
     .replace(/o/g, "ober")
     .replace(/u/g, "ufat");
     asignarTextoElemento(".resultado", textoEncriptado);
+    limpiarCaja();
 }
 
 function desencriptar () {
@@ -25,5 +26,24 @@ function desencriptar () {
     .replace(/ober/g, "o")
     .replace(/ufat/g, "u");
     asignarTextoElemento(".resultado", textoDesencriptado);
+    limpiarCaja();
 }
+
+function copiarAlPortapapeles() {
+    let textoACopiar = document.querySelector(".resultado").textContent;
+    let botonCopiar = document.querySelector(".copiar");
+
+    navigator.clipboard.writeText(textoACopiar).then(function() {
+        botonCopiar.textContent = "¡Copiado!";
+
+        setTimeout(function() {
+            botonCopiar.textContent = "Copiar";
+        }, 2000); 
+    });
+}
+
+function limpiarCaja() {
+    let valorCaja =  document.getElementById("textoausar");
+    valorCaja.value = "";
+    }
 

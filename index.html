@@ -10,20 +10,25 @@
     <header></header>
     
     <main class="menu">
-            <div class="menu_resultados">
-            <p class="resultado"> Aqui aparecera el texto que buscas encriptar o desencriptar. </p>
-             <button class="copiar"> Copiar </button>
-            </div>
+        <div class="menu_resultados">
+            <p class="resultado">Aquí aparecerá el texto que buscas encriptar o desencriptar.</p>
+            <button onclick="copiarAlPortapapeles();" class="copiar">Copiar</button>
+        </div>
 
         <section class="menu_principal">
             <label for="textoausar">Ingresa el texto a encriptar:</label>
             <textarea name="textoausar" id="textoausar"></textarea>
 
             <div class="opciones">
-                <button onclick="encriptar();" class="opciones_interaccion"> Encriptar </button>
-                <button onclick="desencriptar();" class="opciones_interaccion"> Desencriptar </button>
+                <button onclick="encriptar();" class="boton_encriptar">
+                    <span class="texto_boton">Encriptar</span>
+                </button>
+                <button onclick="desencriptar();" class="boton_desencriptar">
+                    <span class="texto_boton">Desencriptar</span>
+                </button>
             </div>
         </section>
+      
     </main>
 
     <footer class="footer">
