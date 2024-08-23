@@ -4,9 +4,9 @@
 }
 
 body {
-    background-color: #00AEEF; /* Color de fondo azul característico */
-    color: #FFFFFF; /* Texto en blanco */
-    font-family: 'Arial', sans-serif; /* Fuente simple y legible */
+    background-color: #00AEEF; 
+    color: #FFFFFF; 
+    font-family: 'Arial', sans-serif; 
     margin: 0;
     padding: 0;
 }
@@ -15,14 +15,13 @@ body {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 70vw 89vh 0; /* 50% del ancho y 50% de la altura de la pantalla */
-    border-color: transparent black;
+    border-width: 0 70vw 89vh 0; 
+    border-color: transparent rgb(43, 38, 38);
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -11; /* Asegura que el triángulo esté detrás de otros elementos */
+    z-index: -11; 
 }
-
 
 .menu {
     position: relative;
@@ -34,7 +33,7 @@ body {
 }
 
 .menu_resultados{
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5); 
     padding: 20px;
     margin-left: 200px;
     border-radius: 10px;
@@ -44,62 +43,61 @@ body {
 .copiar {
     font-family: 'P5';
     color: #000000;
-    font-size: 30px;
-    position: relative;
+    font-size: 25px;
     padding: 10px 20px;
-    background-color: #00AEEF;
-    border: 2px solid #0025b8;
+    background-color: #007BFF;
+    border: none;
     cursor: pointer;
+    position: relative;
+    transition: transform 0.2s;
     z-index: 2;
-    transition: transform 0.2s; /* Transiciones para el botón */
 }
 
 .copiar:hover {
-    background-color: #FF3366; /* Cambia el color del botón al pasar el cursor */
+    background-color: transparent;
+    transition: all 0.5s ease;
 }
 
 .copiar::before, .copiar::after {
     content: '';
     position: absolute;
-    width: 1px;
-    height: 1px;
-    background-color: transparent;
-    transition: all 0.5s ease; /* Transición suave para el movimiento */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transition: all 0.5s ease;
     z-index: -1;
 }
 
 .copiar::before {
-    top: -100%;
-    left: -100%;
-    transform: rotate(45deg); /* Girar para que parezca un rombo */
+    border-width: 0 1px 1px 0;
+    border-color: transparent #000;
+    top: -260%;
+    left: -420%;
 }
 
 .copiar::after {
+    border-width: 1px 0 0 1px;
+    border-color: transparent #2a98d8;
     bottom: -100%;
-    right: -100%;
-    transform: rotate(0deg);
+    right: 470%;
 }
 
 .copiar:hover::before {
-    top: -10px;
-    left: -10px;
-    width: 80px;
-    height: 80px;
-    background-color: #000000; 
-    transform: rotate(60deg) scale(1.5); /* Cambia la forma (rotación y tamaño) */
+    top: -40px;
+    left: -1px;
+    border-width: 0 90px 90px 0;
+    transform: rotate(120deg);
 }
 
 .copiar:hover::after {
-    bottom: -10px;
-    right: -10px;
-    width: 80px;
-    height: 80px;
-    background-color: #46a4b4; 
-    transform: rotate(30deg) scale(1.2); /* Cambia la forma (rotación y tamaño) */
+    bottom: -32px;
+    right: 3px;
+    border-width: 80px 0 0 80px;
+    transform: rotate(130deg);
 }
 
 .menu_principal {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.5); 
     padding: 20px;
     margin-right: 100px;
     border-radius: 10px;
@@ -134,13 +132,14 @@ textarea {
     position: relative;
     padding: 10px 20px;
     border: none;
-    background-color: #007BFF; /* Color inicial del botón */
+    background-color: #007BFF;
     cursor: pointer;
     z-index: 2;
 }
 
 .boton_encriptar:hover {
-    background-color: #0056b3; /* Cambia el color del botón al pasar el cursor */
+    background-color: transparent;
+    transition: all 0.5s ease;
 }
 
 .boton_encriptar::before, .boton_encriptar::after {
@@ -148,40 +147,37 @@ textarea {
     position: absolute;
     width: 1px;
     height: 1px;
-    transform: rotate(45deg); /* Girar para que parezca un rombo */
-    transition: all 0.5s ease; /* Transición suave para el movimiento */
-    z-index: -1; /* Asegurar que los rectángulos queden detrás del texto */
+    transform: rotate(45deg); 
+    transition: all 0.5s ease; 
+    z-index: -1; 
 }
 
-/* Rectángulo superior izquierdo */
 .boton_encriptar::before {
     top: -400px;
     left: -50px;
 }
 
-/* Rectángulo inferior derecho */
 .boton_encriptar::after {
     bottom: -300px;
     right: -50px;
 }
 
-/* Cambios de forma y color al pasar el cursor */
 .boton_encriptar:hover::before {
-    top: -15px;
-    left: -20px;
-    width: 110px;
-    height: 100px;
+    top: -16px;
+    left: 40px;
+    width: 70px;
+    height: 70px;
     background-color: #000000; 
-    transform: rotate(60deg) scale(1.5); /* Cambia la forma (rotación y tamaño) */
+    transform: rotate(60deg) scale(1.5); 
 }
 
 .boton_encriptar:hover::after {
-    bottom: -20px;
-    right: -20px;
-    width: 110px;
-    height: 100px;
-    background-color: #46a4b4; 
-    transform: rotate(30deg) scale(1.2); /* Cambia la forma (rotación y tamaño) */
+    bottom: -7px;
+    right: 5px;
+    width: 125px;
+    height: 60px;
+    background-color: #2a98d8; 
+    transform: rotate(30deg); 
 }
 
 .boton_desencriptar {
@@ -191,13 +187,14 @@ textarea {
     position: relative;
     padding: 10px 20px;
     border: none;
-    background-color: #007BFF; /* Color inicial del botón */
+    background-color: #007BFF; 
     cursor: pointer;
     z-index: 2;
 }
 
 .boton_desencriptar:hover {
-    background-color: #0056b3; /* Cambia el color del botón al pasar el cursor */
+    background-color: transparent;
+    transition: all 0.5s ease;
 }
 
 .boton_desencriptar::before, .boton_desencriptar::after {
@@ -212,48 +209,81 @@ textarea {
 
 .boton_desencriptar::before {
     top: -500%;
-    left: 220%;
+    left: 210%;
 }
 
 .boton_desencriptar::after {
     bottom: -300%;
-    right: -125%;
+    right: -115%;
 }
 
 .boton_desencriptar:hover::before {
-    top: -20px;
-    left: -19px;
-    width: 128px;
-    height: 120px;
+    top: -3px;
+    left: 16px;
+    width: 120px;
+    height: 68px;
     background-color: #000000;
-    transform: rotate(110deg) scale(1);
+    transform: rotate(150deg);
 }
 
 .boton_desencriptar:hover::after {
-    bottom: -30px;
-    right: -10px;
-    width: 115px;
-    height: 110px;
-    background-color: #46a4b4;
-    transform: rotate(30deg) scale(1.3);
+    bottom: 2px;
+    right: 25px;
+    width: 145px;
+    height: 70px;
+    background-color: #2a98d8;
+    transform: rotate(140deg);
 }
 
 .texto_boton {
     position: relative;
     z-index: 1;
-    transition: transform 0.7s ease;
+    transition: all 0.5s ease; 
 }
 
-/* Rotación del texto en hover */
+
 .boton_encriptar:hover .texto_boton {
     transform: rotate(20deg);
+    background-image: linear-gradient(
+        150deg,
+        #0b8813,
+        #222222,
+        #2abf0c
+    );
+    background-clip: text;
+    color: transparent;
 }
 
 .boton_desencriptar:hover .texto_boton {
     transform: rotate(-20deg);
+    background-image: linear-gradient(
+        150deg,
+        #0b8813,
+        #222222,
+        #2abf0c
+    );
+    background-clip: text;
+    color: transparent; 
 }
 
-/* Añadido para asegurar que el botón mantenga su tamaño correcto */
+.copiar .texto_boton {
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s ease; 
+}
+
+.copiar:hover .texto_boton {
+    transform: rotate(-25deg); 
+    background-image: linear-gradient(
+        150deg,
+        #0b7c13,
+        #222222,
+        #2abf0c
+    );
+    background-clip: text;
+    color: transparent; 
+}
+
 .boton_encriptar, .boton_desencriptar {
     display: flex;
     align-items: center;

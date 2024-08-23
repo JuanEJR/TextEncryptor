@@ -1,4 +1,6 @@
 let textoAProcesar = (document.getElementById("textoausar"));
+let botonEncriptar = document.querySelector('.boton_encriptar');
+let botonDesencriptar = document.querySelector('.boton_desencriptar');
 
 function asignarTextoElemento(selector, texto) {
     let elementoHTML = document.querySelector(selector);
@@ -30,15 +32,18 @@ function desencriptar () {
 }
 
 function copiarAlPortapapeles() {
-    let textoACopiar = document.querySelector(".resultado").textContent;
-    let botonCopiar = document.querySelector(".copiar");
+    let resultadoTexto = document.querySelector(".resultado").textContent;
+    navigator.clipboard.writeText(resultadoTexto).then(() => {
+        let botonCopiar = document.querySelector(".copiar");
+        let textoBoton = botonCopiar.querySelector(".texto_boton");
 
-    navigator.clipboard.writeText(textoACopiar).then(function() {
-        botonCopiar.textContent = "¡Copiado!";
+        textoBoton.textContent = "Copiado";
+        botonCopiar.classList.add("copiado");
 
-        setTimeout(function() {
-            botonCopiar.textContent = "Copiar";
-        }, 2000); 
+        setTimeout(() => {
+            textoBoton.textContent = "Copiar";
+            botonCopiar.classList.remove("copiado");
+        }, 1500);
     });
 }
 
@@ -47,3 +52,14 @@ function limpiarCaja() {
     valorCaja.value = "";
     }
 
+function verificarTexto() {
+    if (textoAProcesar.value.trim() === "") {
+        botonEncriptar.disabled = true;
+        botonDesencriptar.disabled = true;
+    } else {
+        botonEncriptar.disabled = false;
+        botonDesencriptar.disabled = false;
+    }
+}
+
+verificarTexto();
