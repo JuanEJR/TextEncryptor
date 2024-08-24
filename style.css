@@ -9,18 +9,31 @@ body {
     font-family: 'Arial', sans-serif; 
     margin: 0;
     padding: 0;
+    overflow: hidden; 
+    position: relative;
+}
+
+.hoja {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    background-image: url('assets/icone-de-feuille-rose.png');
+    background-size: cover;
+    opacity: 0.8;
+    z-index: 1;
+    animation: caerHojas linear infinite;
 }
 
 .triangulo {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 70vw 89vh 0; 
+    border-width: 0 65vw 95vh 0; 
     border-color: transparent rgb(43, 38, 38);
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -11; 
+    z-index: 2; 
 }
 
 .menu {
@@ -29,7 +42,7 @@ body {
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    z-index: 2;
+    z-index: 3;
 }
 
 .menu_resultados{
@@ -46,7 +59,8 @@ body {
     font-size: 25px;
     padding: 10px 20px;
     background-color: #007BFF;
-    border: none;
+    border-style: double;
+    border-color: rgb(255, 255, 255);
     cursor: pointer;
     position: relative;
     transition: transform 0.2s;
@@ -56,6 +70,7 @@ body {
 .copiar:hover {
     background-color: transparent;
     transition: all 0.5s ease;
+    border: none;
 }
 
 .copiar::before, .copiar::after {
@@ -107,6 +122,7 @@ body {
 textarea {
     width: 85%;
     height: 100px;
+    color: #FFFFFF;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid #FFFFFF;
     border-radius: 5px;
@@ -131,7 +147,8 @@ textarea {
     font-size: 28px;
     position: relative;
     padding: 10px 20px;
-    border: none;
+    border-style: double;
+    border-color: #FFFFFFFF;
     background-color: #007BFF;
     cursor: pointer;
     z-index: 2;
@@ -139,6 +156,7 @@ textarea {
 
 .boton_encriptar:hover {
     background-color: transparent;
+    border-style: none;
     transition: all 0.5s ease;
 }
 
@@ -186,7 +204,8 @@ textarea {
     font-size: 28px;
     position: relative;
     padding: 10px 20px;
-    border: none;
+    border-style: double;
+    border-color: #FFFFFFFF;
     background-color: #007BFF; 
     cursor: pointer;
     z-index: 2;
@@ -194,6 +213,7 @@ textarea {
 
 .boton_desencriptar:hover {
     background-color: transparent;
+    border: none;
     transition: all 0.5s ease;
 }
 
@@ -290,13 +310,6 @@ textarea {
     justify-content: center;
 }
 
-.footer p {
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 14px;
-    margin-top: 20px;
-}
-
 .menu_principal {
     animation: slideIn 0.5s ease-out;
 }
@@ -310,4 +323,236 @@ textarea {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes caerHojas {
+    0% {
+        transform: translateY(-100%) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-30vw) rotate(360deg); 
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1500px) {
+    .menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu_principal{
+        margin: 15px 5px;
+        padding: 10px;
+        width: 95%;
+    }
+
+    .opciones {
+        flex-direction: column;
+        gap: 70px;
+        padding-left: 250px;
+        padding-bottom: 40px;
+    }
+
+    .resultado{
+        padding-bottom: 30px;
+        font-size: 20px;
+    }
+
+    .menu_resultados {
+        margin: 15px 5px;
+        padding: 10px;
+        width: 95%;
+        padding-bottom: 30px;
+    }
+
+    .copiar {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    .copiar:hover::before {
+        top: -25px;
+        left: -1px;
+        border-width: 0 90px 90px 0;
+        transform: rotate(130deg);
+    }
+
+    .copiar:hover::after {
+        bottom: -24px;
+        right: -10px;
+        border-width: 90px 0 0 90px;
+        transform: rotate(140deg);
+    }
+
+    .boton_encriptar, .boton_desencriptar {
+        width: 250px;
+        font-size: 34px;
+    }
+
+    .boton_encriptar:hover {
+        background-color: transparent;
+        transition: all 0.5s ease;
+        font-size: 45px;
+    }
+
+    .boton_encriptar:hover::before {
+        top: -40px;
+        left: 20px;
+        width: 110px;
+        height: 110px;
+        transform: rotate(60deg); 
+    }
+    
+    .boton_encriptar:hover::after {
+        bottom: -15px;
+        right: 8px;
+        width: 130px;
+        height: 70px;
+        transform: rotate(30deg); 
+    }
+
+    .boton_desencriptar:hover {
+        background-color: transparent;
+        transition: all 0.5s ease;
+        font-size: 45px;
+    }
+    
+    .boton_desencriptar::before {
+        top: -1%;
+        left: 194%;
+    }
+    
+    .boton_desencriptar::after {
+        bottom: -60%;
+        right: -98%;
+    }
+    
+    .boton_desencriptar:hover::before {
+        top: 30px;
+        left: -30px;
+        width: 200px;
+        height: 50px;
+        transform: rotate(160deg);
+    }
+    
+    .boton_desencriptar:hover::after {
+        bottom: 30px;
+        right: -40px;
+        width: 200px;
+        height: 60px;
+        transform: rotate(150deg);
+    }
+    
+    textarea {
+        width: 600px;
+        font-size: 14px;
+    }
+
+    .triangulo {
+        border-width: 0 90vw 65vh 0;
+        } 
+}
+
+@media (max-width: 500px) {
+    .menu {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu_principal {
+        margin: 10px 0px;
+        padding: 10px;
+        width: 340px;
+    }
+
+    .menu_resultados {
+        margin: 10px 0px;
+        padding: 10px;
+        padding-bottom: 20px;
+        width: 330px;
+    }
+
+    .copiar {
+        font-size: 28px;
+        padding: 20px;
+    }
+
+    .opciones {
+        flex-direction: column;
+        gap: 80px;
+        padding-left: 70px;
+    }
+
+    .boton_encriptar, .boton_desencriptar {
+        width: 200px;
+        font-size: 25px;
+        padding: 20px;
+    }
+
+    .boton_encriptar:hover {
+        background-color: transparent;
+        transition: all 0.5s ease;
+        font-size: 32px;
+    }
+
+    .boton_encriptar:hover::before {
+        top: -30px;
+        left: 30px;
+        width: 90px;
+        height: 100px;
+        transform: rotate(60deg); 
+    }
+    
+    .boton_encriptar:hover::after {
+        bottom: -1px;
+        right: 20px;
+        width: 120px;
+        height: 60px;
+        transform: rotate(30deg); 
+    }
+    
+    .boton_desencriptar:hover {
+        background-color: transparent;
+        transition: all 0.5s ease;
+        font-size: 35px;
+    }
+    
+    .boton_desencriptar::before {
+        top: -1%;
+        left: 130%;
+    }
+    
+    .boton_desencriptar::after {
+        bottom: -60%;
+        right: -35%;
+    }
+    
+    .boton_desencriptar:hover::before {
+        top: 30px;
+        left: -20px;
+        width: 150px;
+        height: 50px;
+        transform: rotate(160deg);
+    }
+    
+    .boton_desencriptar:hover::after {
+        bottom: 40px;
+        right: -20px;
+        width: 130px;
+        height: 50px;
+        transform: rotate(150deg);
+    }
+
+    textarea {
+        width: 250px;
+        font-size: 12px;
+    }
+    
+    .triangulo {
+    border-width: 0 90vw 65vh 0;
+    } 
 }

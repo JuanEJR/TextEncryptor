@@ -8,6 +8,12 @@ function asignarTextoElemento(selector, texto) {
 }
 
 function encriptar () {
+    const texto = document.getElementById("textoausar").value.trim();
+
+    if (texto === "") {
+        return; // Salir de la función si el texto está vacío
+    }
+
     let textoAProcesar = document.getElementById("textoausar").value;
     let textoEncriptado = textoAProcesar
     .replace(/e/g, "enter")
@@ -20,6 +26,12 @@ function encriptar () {
 }
 
 function desencriptar () {
+    const texto = document.getElementById("textoausar").value.trim();
+
+    if (texto === "") {
+        return;
+    }
+
     let textoAProcesar = document.getElementById("textoausar").value;
     let textoDesencriptado = textoAProcesar
     .replace(/enter/g, "e")
@@ -52,14 +64,37 @@ function limpiarCaja() {
     valorCaja.value = "";
     }
 
-function verificarTexto() {
-    if (textoAProcesar.value.trim() === "") {
-        botonEncriptar.disabled = true;
-        botonDesencriptar.disabled = true;
-    } else {
-        botonEncriptar.disabled = false;
-        botonDesencriptar.disabled = false;
-    }
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const maxHojas = 30; 
+    const cantidadHojas = 5;
+    const contenedor = document.body;
 
-verificarTexto();
+    function crearHoja() {
+        const hojasActivas = document.querySelectorAll('.hoja').length;
+        if (hojasActivas < maxHojas) {
+            const hoja = document.createElement('div');
+            hoja.className = 'hoja';
+
+            hoja.style.top = Math.random() * -100 + 'px';
+            hoja.style.left = Math.random() * 100 + 'vw'; 
+            hoja.style.animationDuration = Math.random() * 5 + 5 + 's'; 
+            hoja.style.animationDelay = Math.random() * 5 + 's'; 
+
+            contenedor.appendChild(hoja);
+
+            hoja.addEventListener('animationend', () => {
+                hoja.remove();
+            });
+        }
+    }
+
+    function generarHojas() {
+        for (let i = 0; i < cantidadHojas; i++) {
+            crearHoja();
+        }
+    }
+
+    generarHojas();
+
+    setInterval(generarHojas, 10000); 
+});
