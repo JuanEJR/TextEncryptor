@@ -7,11 +7,28 @@ function asignarTextoElemento(selector, texto) {
     elementoHTML.innerHTML = texto;
 }
 
+document.getElementById("textoausar").addEventListener("input", function() {
+    const texto = this.value;
+    const resultado = document.querySelector(".resultado");
+    
+    if (/[A-Z]/.test(texto)) {
+        resultado.textContent = "Recuerda que no se pueden utilizar mayúsculas en este encriptador de texto.";
+        resultado.style.color = "lightgreen"; 
+    } else {
+        resultado.textContent = "Aquí aparecerá el texto que buscas encriptar o desencriptar.";
+        resultado.style.color = ""; 
+    }
+});
+
 function encriptar () {
     const texto = document.getElementById("textoausar").value.trim();
 
+    if (/[A-Z]/.test(texto)) {
+        return;
+    }
+
     if (texto === "") {
-        return; // Salir de la función si el texto está vacío
+        return; 
     }
 
     let textoAProcesar = document.getElementById("textoausar").value;
@@ -27,6 +44,10 @@ function encriptar () {
 
 function desencriptar () {
     const texto = document.getElementById("textoausar").value.trim();
+
+    if (/[A-Z]/.test(texto)) {
+        return;
+    }
 
     if (texto === "") {
         return;
@@ -96,5 +117,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     generarHojas();
 
-    setInterval(generarHojas, 10000); 
+    setInterval(generarHojas, 6000); 
 });
